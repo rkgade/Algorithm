@@ -1,7 +1,6 @@
 
 */  Author : Aditya Chatterjee
    Verifies the 8 queen problem state in 8*8 board
-   Using DFS
    License : CC0 1.0 Universal
    */
    
