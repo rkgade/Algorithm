@@ -23,7 +23,6 @@ public class Main {
 			f[i] = Math.max(f[i], val);
 		}
 	}
- 
 	static final Random rng = new Random(1234);
  
 	static class Node {
