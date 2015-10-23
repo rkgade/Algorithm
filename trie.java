@@ -4,7 +4,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class Solution
+class Solution
 {
     private static final String wordsCorpusFilePath = "words.txt";
     private static final String testInputFilePath = "examples3.txt";
