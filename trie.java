@@ -17,6 +17,7 @@ class Solution
 	try (BufferedReader br = new BufferedReader(new FileReader(wordsCorpusFilePath)))
 	{
 	    String word;
+	    
 	    while ((word = br.readLine()) != null)
 	    {
 		word = word.trim().toLowerCase();
