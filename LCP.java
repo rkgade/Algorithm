@@ -103,34 +103,9 @@ class Solution {
 	}
 		public static void main(String[] args) throws IOException {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			/*String s = br.readLine();
-			int N = Integer.parseInt(s);
-			String[] r = new String[N];
-			for (int i = 0; i < r.length; i++) {
-				s = br.readLine();
-				r[i] = s;
-			}
-			s = br.readLine();
-			int M = Integer.parseInt(s);
-			int[] queries = new int[M];
-			for (int i = 0; i < queries.length; i++) {
-				s = br.readLine();
-				queries[i] = Integer.parseInt(s);
-			}
-			ArrayList<String> l = new ArrayList<String>();
-			for (int i = 0; i < r.length; i++) {
-				for (int j = 0; j < r[i].length(); j++) {
-					l.add(r[i].substring(j));
-				}
-			}
-			String[] array = (String[]) l.toArray(new String[l.size()]);
-			SuffixArray suffix = new SuffixArray(array);
-			for (int i = 0; i < queries.length; i++) {
-				System.out.println(suffix.lexicographicRank(queries[i]));
-			}*/
-            String s="banana@";
-            SuffixArray suffix=new SuffixArray(s);
-            for(int i=0;i<suffix.lcp.length;i++)
-            System.out.println(suffix.lcp[i]);
+			String s="banana@";
+		        SuffixArray suffix=new SuffixArray(s);
+		        for(int i=0;i<suffix.lcp.length;i++)
+		            System.out.println(suffix.lcp[i]);
         }
 }
