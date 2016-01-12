@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class Compute_Legendre_Symbol
+{
+    public static void main()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter value of a : ");
+        int a=sc.nextInt();
+        System.out.println("Enter value of m : ");
+        int m=sc.nextInt();
+        // Computes (a/m) legendre symbol
+        int leg = legendre(a,m);
+        System.out.println("The legendre of a/m is : "+leg);
+    }
+    // Computes legendre symbol (a/m)
+    public static int legendre(int a, int m)
+    {
+        // Reduction loops
+        a=a%m;
+        int t=1;
+        while(a!=0)
+        {
+            while(a%2==0)
+            {
+                a=a/2;
+                int c=m%8;
+                if(c==3 || c==5)
+                    t=-1*t;
+            }
+            int temp=a;
+            a=m;
+            m=temp;
+            if(a%4==3 && m%4==3)
+                t=-1*t;
+            a=a%m;
+        }
+        // Termination
+        if(m==1) 
+            return t;
+        return 0;
+    }
+}
