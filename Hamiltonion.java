@@ -72,7 +72,3 @@ public static int next(int mask,int i,int n){
             return -1;
         }
 }
-    
-            
-        
-        
