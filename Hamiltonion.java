@@ -1,9 +1,11 @@
 // Shortest Hamiltonian Path in O((2^n)*n) memory and 
 // O((2^n)*(n^2)) time
 import java.util.Scanner;
-class Hamiltonion{
+class Hamiltonion
+{
     static long edge[][],dp[][];
-    public static void main(String args[]){
+    public static void main(String args[])
+    {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();long max=99999;
         int m=sc.nextInt();edge=new long[n][n];
@@ -25,15 +27,18 @@ class Hamiltonion{
         for(int i=0;i<n;i++)
         dp[1<<i][i]=0;
         // computing the minimum hamiltonian path
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++)
+        {
             for(int mask=0;mask<(1<<n);mask++)
-            if(bit(i,mask)==1 && count(mask)>1){
-            long p=max;
-            for(int j=0;j<i;j++){
-                if(edge[i][j]>0)
-                 p=Math.min(dp[mask^(1<<i)][j]+edge[i][j],p);
+            if(bit(i,mask)==1 && count(mask)>1)
+            {
+                long p=max;
+                for(int j=0;j<i;j++)
+                {
+                    if(edge[i][j]>0)
+                     p=Math.min(dp[mask^(1<<i)][j]+edge[i][j],p);
                 }
-            dp[mask][i]=p;
+                dp[mask][i]=p;
              }
         }
     long min=99999;int end=0;
@@ -44,31 +49,36 @@ class Hamiltonion{
     System.out.println("Minimum cost : "+min);
     // generating the path
     int mask=0 | (1<<end),next_v=end;
-    while(next_v!=-1){
-    mask=mask|(1<<end);
-    next_v=next(mask,end,n);
-    end=next_v;
-    System.out.print(end+"--");
+    while(next_v!=-1)
+    {
+        mask=mask|(1<<end);
+        next_v=next(mask,end,n);
+        end=next_v;
+        System.out.print(end+"--");
+    }
 }
-}
-public static int bit(int i,int mask){
+public static int bit(int i,int mask)
+{
     if((mask & (1<<i)) != 0)
      return 1;
    return 0;
 }
-public static int count(int mask){
+public static int count(int mask)
+{
     int count=0;
     for(int i=0;i<32;i++)
      if((mask & (1<<i)) !=0)
       ++count;
     return count;
 }
-public static int next(int mask,int i,int n){
-    for(int j=0;j<n;j++){
+public static int next(int mask,int i,int n)
+{
+    for(int j=0;j<n;j++)
+    {
         if(i!=j && bit(j,mask)==0)
           if(dp[(1<<n)-1][i]== ( dp[((1<<n)-1)^(1<<i)][j]+edge[j][i]))
              return j;
-            }
-            return -1;
-        }
+    }
+    return -1;
+}
 }
