@@ -3,15 +3,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 class Solution {
 	public static class SuffixArray {
 		public final String[] suffixes;
 		public int[] cumulativeRanks;
 		public int[] lcp;
 		private final int N;
-
-		public SuffixArray(String s) {
+		public SuffixArray(String s) 
+		{
 			N = s.length();
 			suffixes = new String[N];
 			cumulativeRanks = new int[N];
