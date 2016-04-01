@@ -1,45 +1,59 @@
 import java.util.Arrays;
 
-/* Given an array, find longest increasing subsequence in nlogn time complexity
+/* Given an array, find longest increasing subsequence in O(nlogn) time complexity
  */
 public class LongestIncreasingSubSequence {
 
     /**
      * Returns index in T for ceiling of s
      */
-    public static int ceilIndex(int input[], int T[], int end, int s){
+    public static int ceilIndex(int input[], int T[], int end, int s)
+    {
         int start = 0;
         int middle;
         int len = end;
-        while(start <= end){
+        while(start <= end)
+        {
             middle = (start + end)/2;
-            if(middle < len && input[T[middle]] < s && s <= input[T[middle+1]]){
+            if(middle < len && input[T[middle]] < s && s <= input[T[middle+1]])
+            {
                 return middle+1;
-            }else if(input[T[middle]] < s){
+            }else if(input[T[middle]] < s)
+            {
                 start = middle+1;
-            }else{
+            }
+            else
+            {
                 end = middle-1;
             }
         }
         return -1;
     }
     
-    public static int longestIncreasingSubSequence(int input[]){
+    public static int longestIncreasingSubSequence(int input[])
+    {
         int T[] = new int[input.length];
         int R[] = new int[input.length];
-        for(int i=0; i < R.length ; i++) {
+        for(int i=0; i < R.length ; i++) 
+        {
             R[i] = -1;
         }
         T[0] = 0;
         int len = 0;
-        for(int i=1; i < input.length; i++){
-            if(input[T[0]] > input[i]){ //if input[i] is less than 0th value of T then replace it there.
+        for(int i=1; i < input.length; i++)
+        {
+            if(input[T[0]] > input[i])
+            { //if input[i] is less than 0th value of T then replace it there.
                 T[0] = i;
-            }else if(input[T[len]] < input[i]){ //if input[i] is greater than last value of T then append it in T
+            }
+            else if(input[T[len]] < input[i])
+            { //if input[i] is greater than last value of T then append it in T
                 len++;
                 T[len] = i;
                 R[T[len]] = T[len-1];
-            }else{ //do a binary search to find ceiling of input[i] and put it there.
+            }
+            else
+            { //do a binary search to find ceiling of input[i] and put it there.
                 int index = ceilIndex(input, T, len,input[i]);
                 T[index] = i;
                 R[T[index]] = T[index-1];
