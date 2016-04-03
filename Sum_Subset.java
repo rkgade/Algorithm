@@ -49,5 +49,3 @@ public class Sum_Subset
  *  Output: 7029
  *  
  */
-        
-            
